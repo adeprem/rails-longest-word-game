@@ -22,11 +22,11 @@ class PagesController < ApplicationController
       @info = "well done"
     else
       @score = 0
-      @info ="not an english word"
+      @info ="Your word was not present in the English Dicitonnary"
     end
   else
     @score = 0
-    @info = "not in the grid"
+    @info = "You used at least one letter that was not part of the grid"
   end
 end
 
@@ -46,26 +46,3 @@ def english_word?(word)
   return json['found']
 end
 end
-# def run_game(guess, grid, start_time, end_time)
-#   result = { time: end_time - start_time }
-
-#   score_and_message = score_and_message(@guess, @grid, result[:time])
-#   result[:score] = score_and_message.first
-#   result[:message] = score_and_message.last
-
-#   result
-# end
-
-# def score_and_message(@guess, @grid, time)
-#   if included?(@guess.upcase, @grid)
-#     if english_word?(@guess)
-#       score = compute_score(@guess, time)
-#       [score, "well done"]
-#     else
-#       [0, "not an english word"]
-#     end
-#   else
-#     [0, "not in the @grid"]
-#   end
-# end
-

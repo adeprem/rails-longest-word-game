@@ -1,11 +1,19 @@
-<h3>YOUR GRID</h3>
-<%= @grid %>
-<br>
-<br>
-<form action="/score" method="get">
-  <label for="anwser">Please put your answer</label>
-  <input type="text" name="guess" placeholder="your word">
-  <input type="hidden" name="grid" value=<%= @grid.join("") %>> </input>
-    <input type="hidden" name="start" value="#{<%= @start_time.strftime '%Y-%m-%d %H:%M:%S %z' %>}"> </input>
-  <input type="submit" value="Go on!">
-</form>
+<div class="container text-center">
+<div class="form">
+  <div class="title">
+    <h3>YOUR GRID</h3>
+  </div>
+  <div class="grid">
+    <%= @grid %>
+  </div>
+  <div class="form-group">
+    <form action="/score" method="get" class="form-answer">
+      <label for="answer">Please write your answer</label><br>
+      <input type="text" name="guess" placeholder="your word" class="form-control-inline form-control-lg">
+      <input type="hidden" name="grid" value=<%= @grid.join("") %>> </input>
+      <input type="hidden" name="start" value="#{<%= @start_time.strftime '%Y-%m-%d %H:%M:%S %z' %>}"> </input>
+      <input type="submit" value="Go on!" class="btn btn-lg">
+    </form>
+  </div>
+</div>
+</div>
